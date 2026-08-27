@@ -1,8 +1,65 @@
-# Pangle iOS SDK
-Pangle iOS SDK for Swift Package Manager.
+# Pangle iOS SDK Beta
 
-# Integration
-The Swift Package Manager is a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies.
-To integrate the Pangle SDK into your project using Swift Package Manager, please refer to [SPM integration documentation](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app). And remember to enable the `-ObjC` flag in Xcode: select Build Settings, search for Other Linker Flags and add `-ObjC`.
+Pangle iOS SDK Beta package for Swift Package Manager.
 
-Check out our [integration docs](https://www.pangleglobal.com/zh/integration/integrate-pangle-sdk-for-ios) for more info on getting started with Pangle SDK.
+## Integration
+
+Before integrating the package, make sure the app target enables the `-ObjC` linker flag in Xcode: select the app target, open Build Settings, search for Other Linker Flags, and add `-ObjC`.
+
+### Option 1: Add the package in Xcode
+
+In Xcode, choose File -> Add Package Dependencies..., then enter:
+
+```text
+https://github.com/bytedance/AdsGlobalPackage-Beta.git
+```
+
+Select a Beta tag, for example:
+
+```text
+8.4.0-beta.0
+```
+
+Choose the product:
+
+```text
+AdsGlobalPackage
+```
+
+Import the SDK in code:
+
+```swift
+import AdsGlobalPackage
+```
+
+### Option 2: Add the package in Package.swift
+
+Add the Beta package dependency:
+
+```swift
+dependencies: [
+    .package(
+        url: "https://github.com/bytedance/AdsGlobalPackage-Beta.git",
+        exact: "8.4.0-beta.0"
+    )
+]
+```
+
+Then add the product dependency to your target:
+
+```swift
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            .product(name: "AdsGlobalPackage", package: "AdsGlobalPackage-Beta")
+        ]
+    )
+]
+```
+
+Import the SDK in code:
+
+```swift
+import AdsGlobalPackage
+```
