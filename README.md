@@ -6,6 +6,8 @@ Pangle iOS SDK Beta package for Swift Package Manager.
 
 Before integrating the package, make sure the app target enables the `-ObjC` linker flag in Xcode: select the app target, open Build Settings, search for Other Linker Flags, and add `-ObjC`.
 
+For the full Pangle iOS integration guide, see the [official Pangle documentation](https://www.pangleglobal.com/integration/integrate-pangle-sdk-for-ios).
+
 ### Option 1: Add the package in Xcode
 
 In Xcode, choose File -> Add Package Dependencies..., then enter:
